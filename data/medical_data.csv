@@ -1,9 +1,200 @@
 text,label
-Patient suffers from fever and cough,1
-Blood pressure normal,0
-High glucose detected in blood test,1
-No abnormal findings,0
-Signs of infection in lungs,1
-Cholesterol level within normal range,0
-Severe abdominal pain reported,1
-Routine check-up shows normal results,0
+ECG shows normal sinus rhythm with regular rate,0
+Positive HIV antibody test confirmed by Western blot,1
+Complete physical exam unremarkable in healthy adult male,0
+Patient has unexplained weight loss of 10 kg in one month,1
+Physical examination reveals no signs of disease,0
+Retinal detachment diagnosed during ophthalmologic examination,1
+"Fasting blood sugar at 186 mg/dL, consistent with diabetes",1
+Patient reports severe headache and neck stiffness,1
+Pelvic exam shows no abnormalities in reproductive organs,0
+Multiple sclerosis lesions visible on brain MRI,1
+Psychiatric evaluation reveals stable mood and normal affect,0
+"Hyperkalemia detected, immediate cardiac monitoring initiated",1
+Patient diagnosed with acute appendicitis requiring surgery,1
+Arterial blood gas shows severe metabolic acidosis,1
+Echocardiogram shows normal cardiac structure and function,0
+Renal function stable with GFR above 90 mL/min,0
+High levels of uric acid detected in blood sample,1
+Gallstones detected on abdominal ultrasound,1
+Six-month follow-up confirms sustained blood pressure control,0
+Blood lead level within acceptable range for occupational exposure,0
+Blood culture positive for methicillin-resistant Staphylococcus aureus,1
+Routine follow-up shows stable chronic condition management,0
+No signs of infection on physical examination today,0
+"Urinary function normal, no symptoms of infection",0
+Acute kidney injury with creatinine tripling from baseline,1
+CT scan reveals small mass in right lung lobe,1
+Upper endoscopy shows normal gastric and duodenal mucosa,0
+Chronic obstructive pulmonary disease exacerbation confirmed,1
+"Patient maintaining alcohol abstinence, liver enzymes normalized",0
+Complete metabolic panel all results within normal limits,0
+Well-healed surgical scar with no signs of recurrence,0
+No joint swelling or tenderness on rheumatological exam,0
+Lipid panel shows normal cholesterol and triglycerides,0
+Growth parameters within normal range for pediatric patient,0
+Positive tuberculosis skin test confirmed by chest radiograph,1
+MRI reveals herniated disc at L4-L5 level,1
+Patient reports no chest pain or shortness of breath,0
+Patient presents with jaundice and dark urine,1
+Patient has persistent low-grade fever for two weeks,1
+Repeat imaging confirms resolution of previous infection,0
+Severe hypoglycemia episode requiring emergency glucose administration,1
+Swollen and painful joints consistent with rheumatoid arthritis,1
+Fundoscopic exam shows healthy optic nerve and macula,0
+Patient reports sudden vision loss in right eye,1
+Musculoskeletal exam shows full range of motion,0
+Diabetes well-controlled with last HbA1c at 6.4 percent,0
+Colonoscopy reveals multiple polyps requiring removal,1
+Patient discharged in stable condition with no further concerns,0
+High fever with stiff neck in immunocompromised patient,1
+Severe nausea and vomiting for three consecutive days,1
+Hemoglobin A1c within target range for diabetic management,0
+Bone marrow biopsy shows normal hematopoiesis,0
+Biopsy results confirm malignant cells in colon tissue,1
+Patient maintains healthy BMI with good nutritional habits,0
+Blood culture shows no growth after 48 hours,0
+Patient experiencing acute allergic reaction with hives,1
+Ophthalmology exam shows no signs of retinal pathology,0
+Bone density scan within normal range for patient age,0
+Sudden onset of facial drooping and slurred speech,1
+"Urinalysis shows no blood, protein, or bacteria",0
+Patient complains of persistent lower back pain radiating to leg,1
+Patient maintaining adequate hydration and regular exercise,0
+Doppler reveals significant stenosis in left carotid artery,1
+Signs of bacterial infection detected in lung tissue,1
+Elevated troponin I levels suggesting myocardial injury,1
+Postoperative wound infection with purulent discharge,1
+Severe burns covering 30 percent of total body surface area,1
+Peripheral blood smear shows presence of blast cells,1
+"Cognitive function intact, no memory concerns reported",0
+Liver biopsy shows no fibrosis or inflammatory changes,0
+Abnormal cells detected on Pap smear examination,1
+Tumor marker CA-125 significantly elevated in female patient,1
+Rectal bleeding and change in bowel habits for six weeks,1
+No evidence of cardiac disease on comprehensive evaluation,0
+Echocardiogram shows reduced ejection fraction of 35 percent,1
+Urine drug screen positive for opiates and benzodiazepines,1
+No lymphadenopathy or organomegaly detected on examination,0
+"Patient reports feeling well, no new complaints today",0
+"Vitamin D level adequate, no supplementation required",0
+Seizure activity recorded on EEG during overnight monitoring,1
+Abnormal liver biopsy consistent with cirrhosis stage three,1
+Prostate-specific antigen within acceptable range for patient age,0
+Inflammatory markers CRP and ESR within normal range,0
+Severe dehydration with sunken eyes and dry mucous membranes,1
+Patient reports progressive difficulty swallowing solid foods,1
+"Potassium level critically low, risk of cardiac arrhythmia",1
+Abdominal CT reveals enlarged spleen and lymphadenopathy,1
+Sputum culture grows Mycobacterium tuberculosis,1
+Patient experiencing confusion and memory loss episodes,1
+Routine chest X-ray shows clear lung fields bilaterally,0
+Edema observed in both lower extremities,1
+Blood glucose level elevated at 320 mg/dL,1
+Severe abdominal pain reported in lower right quadrant,1
+Severe anemia confirmed with ferritin level below normal,1
+Patient experiencing severe depression with suicidal ideation,1
+Patient presents with high fever and persistent dry cough,1
+Pulmonary function test shows severe obstructive pattern,1
+Worsening dyspnea with bilateral pleural effusions on imaging,1
+Peripheral blood smear shows normal morphology of all cell lines,0
+"Vaccination history up to date, no concerns noted",0
+Hemoglobin level critically low at 6.2 g/dL,1
+Blood pressure within normal range at 118/76 mmHg,0
+"Iron levels within normal range, no anemia detected",0
+No new symptoms reported since last quarterly visit,0
+Chest X-ray shows bilateral infiltrates suggesting pneumonia,1
+Follow-up appointment confirms full recovery from prior illness,0
+"Pap smear results normal, no cellular abnormalities",0
+Thyroid function tests within normal reference range,0
+X-ray shows fracture in distal radius following fall,1
+Breast mass confirmed malignant on core needle biopsy,1
+Patient denies any pain or discomfort at this visit,0
+Patient presents with acute onset of severe flank pain,1
+Prenatal checkup shows normal fetal growth and development,0
+Patient reports no gastrointestinal symptoms this visit,0
+No concerning features noted on dermatological examination,0
+Patient's weight and height appropriate for age group,0
+No signs of neuropathy on detailed foot examination,0
+Elevated PSA level requires further prostate evaluation,1
+Kidney function tests within normal limits,0
+Patient presents with bilateral lower limb weakness,1
+"Chest pain radiating to left arm, EKG changes noted",1
+Follow-up bloodwork confirms normal renal function post-procedure,0
+Thyroid-stimulating hormone level abnormally elevated,1
+Blood sodium and potassium levels both within normal range,0
+Spinal X-ray shows normal alignment and no disc disease,0
+Skin biopsy confirms diagnosis of squamous cell carcinoma,1
+Patient demonstrates good medication adherence with positive outcome,0
+Patient reports excellent energy levels and regular exercise,0
+"Creatinine level high, indicative of kidney dysfunction",1
+Breast exam shows no palpable masses or nipple discharge,0
+Stool culture positive for Salmonella enteritidis,1
+"Liver enzymes significantly elevated, possible hepatitis",1
+Spirometry results show FEV1/FVC ratio below 70 percent,1
+"Electrolyte panel balanced, no supplementation needed",0
+Patient reports no headaches or visual disturbances,0
+Patient reports burning sensation during urination,1
+No abnormalities detected on abdominal ultrasound,0
+"Patient in good general health, no abnormal findings",0
+Patient reports good sleep and regular appetite,0
+Urinalysis shows presence of blood and protein,1
+Liver function tests all within acceptable ranges,0
+"Sodium level dangerously low, patient presents with confusion",1
+Fasting glucose level normal at 92 mg/dL,0
+"Asthma well-controlled, no recent exacerbations reported",0
+Mammography shows no suspicious lesions or masses,0
+Bone density scan confirms advanced osteoporosis,1
+Thyroid nodule stable in size on repeat ultrasound,0
+ECG shows irregular heartbeat consistent with atrial fibrillation,1
+"Patient recovering well, vitals stable and within normal range",0
+No abnormal lymph nodes palpable on neck examination,0
+Stool occult blood test returned negative result,0
+Respiratory distress with oxygen saturation dropping to 88 percent,1
+Laboratory results confirm systemic lupus erythematosus diagnosis,1
+Annual physical exam completed with satisfactory results,0
+Routine colonoscopy shows no polyps or abnormalities,0
+Neurological examination shows no focal deficits,0
+Positive culture for Streptococcus pneumoniae,1
+Patient has maintained normal weight over the past year,0
+All immunoglobulin levels within normal reference ranges,0
+"Coagulation studies abnormal, INR elevated above therapeutic range",1
+"Positive antinuclear antibody test, lupus suspected",1
+Pulmonary function test results within predicted normal values,0
+Thyroid gland normal size and consistency on palpation,0
+Patient presents with painful and swollen knee joint,1
+Complete blood count shows all values within normal limits,0
+Blood oxygen saturation maintained at 98 percent on room air,0
+Annual eye exam shows stable vision with no changes,0
+Wound shows signs of necrosis and delayed healing,1
+Patient tolerating new medication well with no side effects,0
+Diffuse abdominal tenderness with rebound noted on examination,1
+"Healthy lifestyle maintained, no intervention needed at this time",0
+"Annual checkup completed, all results satisfactory",0
+Patient suffers from recurrent urinary tract infections,1
+Deep vein thrombosis confirmed by ultrasound,1
+No evidence of deep vein thrombosis on Doppler ultrasound,0
+Audiometry results within normal hearing thresholds,0
+Elevated white blood cell count indicating active infection,1
+Patient presents with rash and swollen lymph nodes,1
+"CSF analysis shows elevated protein, possible meningitis",1
+Post-operative wound healing well without complications,0
+Patient found with altered consciousness and fixed dilated pupils,1
+Cardiac enzymes within normal limits following stress test,0
+Post-vaccination follow-up shows appropriate immune response,0
+"Platelets critically low at 18,000 per microliter",1
+Renal biopsy shows signs of focal segmental glomerulosclerosis,1
+High fever accompanied by convulsions in pediatric patient,1
+"Coagulation profile within normal limits, no bleeding risk",0
+Patient complains of shortness of breath and chest tightness,1
+Chest auscultation reveals clear breath sounds bilaterally,0
+Skin appears healthy with no suspicious lesions noted,0
+Inflammation markers CRP and ESR both significantly raised,1
+Lumbar puncture reveals xanthochromic cerebrospinal fluid,1
+"Patient admitted with acute pancreatitis, lipase extremely elevated",1
+Blood pressure dangerously high at 190/120 mmHg,1
+Corneal ulcer with hypopyon observed on slit-lamp examination,1
+Excessive thirst and frequent urination noted in patient history,1
+Chest CT scan shows no pulmonary embolism or infiltrates,0
+Heart rate and rhythm regular on auscultation,0
+Routine blood work shows no significant abnormalities,0
