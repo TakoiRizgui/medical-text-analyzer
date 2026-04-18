@@ -145,10 +145,21 @@ if st.button(tr["button"], type="primary"):
         proba = model.predict_proba(input_vec)[0]
         confidence = max(proba)
 
-        if prediction == 1:
-            st.error(f"{tr['result_abnormal']} — {tr['confidence']}: {confidence:.0%}")
+        # Run extractor first — use it as primary verdict if values found
+        findings = analyze_text(user_input, lang)
+
+        if findings:
+            has_abnormal = any(f["status_key"] != "normal" for f in findings)
+            if has_abnormal:
+                st.error(tr["result_abnormal"])
+            else:
+                st.success(tr["result_normal"])
         else:
-            st.success(f"{tr['result_normal']} — {tr['confidence']}: {confidence:.0%}")
+            # No numeric values — fall back to NLP model
+            if prediction == 1:
+                st.error(f"{tr['result_abnormal']} — {tr['confidence']}: {confidence:.0%}")
+            else:
+                st.success(f"{tr['result_normal']} — {tr['confidence']}: {confidence:.0%}")
 
         with st.expander(tr["keywords_title"]):
             feature_names = vectorizer.get_feature_names_out()
@@ -170,7 +181,6 @@ if st.button(tr["button"], type="primary"):
                 st.info(tr["no_keywords"])
 
         st.subheader(tr["interp_title"])
-        findings = analyze_text(user_input, lang)
         if findings:
             for f in findings:
                 icon = "✅" if f["status_key"] == "normal" else "⚠️"
