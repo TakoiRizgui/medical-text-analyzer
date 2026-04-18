@@ -1,72 +1,99 @@
-# 🧠 Medical Text Analyzer (NLP + Machine Learning)
+# Medical Text Analyzer
 
-## 📌 Project Overview
-This project aims to analyze medical text data using Natural Language Processing (NLP) and Machine Learning techniques.
+An NLP project that classifies medical reports as **Normal** or **Abnormal** using TF-IDF vectorization and Logistic Regression, with an interactive Streamlit interface.
 
-It classifies medical text into:
-- ✅ Normal cases
-- ⚠️ Abnormal cases
-
-The project also provides:
-- Prediction confidence
-- Explanation of important words influencing the result
+> ⚠️ Educational purposes only — not intended for clinical use.
 
 ---
 
-## 🚀 Web Application (Streamlit)
-This project includes an interactive web application built with Streamlit.
+## Demo
 
-### ▶️ Run the app locally
-```bash
-streamlit run app.py ```
+```
+Patient presents with high fever and elevated white blood cell count
+→ ⚠️ Abnormal case detected — Confidence: 91%
+```
 
-## ⚙️ Methodology
-- Text preprocessing
-- TF-IDF vectorization
-- Logistic Regression model
+---
 
-## 📊 Results
-- The model successfully classifies medical texts
-- Key terms influencing predictions are extracted
+## Features
 
-### 🔍 Feature
-Medical text classification
-Confidence score for predictions
-Keyword-based explanation of results
-Interactive user interface
+- Binary classification of medical text (Normal / Abnormal)
+- Confidence score for each prediction
+- Keyword-level explanation — shows which words drove the result
+- Model performance metrics displayed in the sidebar (Accuracy, F1 Score)
+- Interactive web interface built with Streamlit
 
-## 🛠️ Technologies Used
-Python
-Pandas
-Scikit-learn
-Streamlit
+---
 
-## 📁 Project Structure
+## Methodology
+
+1. **Preprocessing** — lowercasing, punctuation removal
+2. **Vectorization** — TF-IDF with unigrams and bigrams
+3. **Model** — Logistic Regression trained on 80% of data, evaluated on 20%
+4. **Evaluation** — Accuracy + F1 Score on held-out test set
+
+---
+
+## Project Structure
+
+```
 medical-text-analyzer/
 │
 ├── data/
-│   └── medical_data.csv
+│   └── medical_data.csv       # 199 synthetic medical sentences
 │
 ├── notebook/
-│   └── analysis.ipynb
+│   └── analysis.ipynb         # Exploratory analysis and model prototyping
 │
-├── app.py
-├── README.md
-└── requirements.txt
+├── app.py                     # Streamlit web application
+├── requirements.txt
+└── README.md
+```
 
-## 🚀 Future Improvements
-Use real-world medical datasets
-Implement advanced NLP models (BERT, Transformers)
-Improve UI/UX
-Deploy the app online
+---
 
-## ⚠️ Disclaimer
-This project is for educational purposes only and does not provide medical advice.
+## Getting Started
 
+```bash
+# Clone the repo
+git clone https://github.com/TakoiRizgui/medical-text-analyzer.git
+cd medical-text-analyzer
 
-## 👩‍💻 Author
-Takoi Rizgui
-Data Science & Healthcare Enthusiast
-🔗 LinkedIn: www.linkedin.com/in/takwa-rizgui-094b1a95
+# Install dependencies
+pip install -r requirements.txt
 
-🔗 GitHub: https://github.com/TakoiRizgui
+# Run the app
+streamlit run app.py
+```
+
+Then open your browser at `http://localhost:8501`
+
+---
+
+## Dataset
+
+The dataset (`medical_data.csv`) contains 199 synthetic medical sentences — 100 normal, 99 abnormal — covering cardiology, endocrinology, infectiology, neurology, and oncology.
+
+> A known limitation of this project is the use of synthetic data. Real-world performance would require validation on clinical datasets such as MIMIC-III.
+
+---
+
+## Roadmap
+
+- [ ] Replace synthetic data with a real clinical dataset
+- [ ] Add text preprocessing with medical stopwords
+- [ ] Experiment with BERT / BioBERT for improved accuracy
+- [ ] Deploy on Streamlit Cloud
+
+---
+
+## Technologies
+
+Python · Pandas · Scikit-learn · Streamlit · NumPy
+
+---
+
+## Author
+
+**Takoi Rizgui** — Data Science & Healthcare  
+[LinkedIn](https://www.linkedin.com/in/takwa-rizgui-094b1a95) · [GitHub](https://github.com/TakoiRizgui)
