@@ -1,5 +1,7 @@
 # Medical Text Analyzer
 
+[![Live Demo](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://medical-text-analyzer-sbkv62hqz7fumsqqg2htpv.streamlit.app/)
+
 An NLP project that classifies medical reports as **Normal** or **Abnormal** using TF-IDF vectorization and Logistic Regression, with an interactive Streamlit interface.
 
 > ⚠️ Educational purposes only — not intended for clinical use.
