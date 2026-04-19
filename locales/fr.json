@@ -1,0 +1,23 @@
+{
+  "title": "🩺 Interpréteur de Bilans Biologiques",
+  "subtitle": "Collez vos résultats d'analyses et obtenez une interprétation immédiate.",
+  "disclaimer": "⚠️ *À des fins éducatives uniquement — ne remplace pas un avis médical.*",
+  "input_label": "Collez vos résultats d'analyses :",
+  "placeholder": "ex. Ferritine 8 ng/mL, Hémoglobine 10.2 g/dL, Glycémie 140 mg/dL, CRP 45 mg/L",
+  "button": "Analyser",
+  "sample_btn": "📋 Voir un exemple",
+  "empty_warning": "Veuillez entrer du texte.",
+  "result_abnormal": "⚠️ Valeurs hors normes détectées",
+  "result_normal": "✅ Toutes les valeurs dans les normes",
+  "interp_title": "📋 Interprétation détaillée",
+  "no_interp": "❌ Aucune valeur reconnue.\n\nFormat attendu : `Ferritine 50 ng/mL` ou `Glycémie 1.05 g/L`\n\nParamètres supportés : Ferritine, Hémoglobine, Glycémie, HbA1c, CRP, TSH, Créatinine, Triglycérides, Cholestérol, Plaquettes, Vitamine D, INR, Urée, Sodium, Potassium",
+  "ref_label": "Valeurs de référence",
+  "advice_label": "Recommandation",
+  "export_btn": "📄 Exporter le rapport PDF",
+  "export_filename": "bilan_biologique.pdf",
+  "sidebar_lang": "🌐 Langue",
+  "sidebar_params": "paramètres supportés",
+  "sidebar_how": "ℹ️ Comment ça fonctionne",
+  "sidebar_how_text": "1. Collez vos résultats d'analyses\n2. Chaque valeur est extraite et comparée à des seuils cliniques\n3. Vous obtenez une interprétation et des recommandations\n\n⚠️ Cet outil n'utilise PAS d'IA ou de machine learning. Il utilise des règles et seuils cliniques.",
+  "dir": "ltr"
+}

@@ -1,0 +1,23 @@
+{
+  "title": "🩺 Clinical Lab Results Interpreter",
+  "subtitle": "Paste your lab results and get an instant interpretation.",
+  "disclaimer": "⚠️ *Educational purposes only — not a substitute for medical advice.*",
+  "input_label": "Paste your lab results:",
+  "placeholder": "e.g. Ferritin 8 ng/mL, Hemoglobin 10.2 g/dL, Glucose 140 mg/dL, CRP 45 mg/L",
+  "button": "Analyze",
+  "sample_btn": "📋 Try a sample",
+  "empty_warning": "Please enter some text.",
+  "result_abnormal": "⚠️ Out-of-range values detected",
+  "result_normal": "✅ All values within normal range",
+  "interp_title": "📋 Detailed Interpretation",
+  "no_interp": "❌ No values recognized.\n\nExpected format: `Ferritin 50 ng/mL` or `Glucose 140 mg/dL`\n\nSupported parameters: Ferritin, Hemoglobin, Glucose, HbA1c, CRP, TSH, Creatinine, Triglycerides, Cholesterol, Platelets, Vitamin D, INR, Urea, Sodium, Potassium",
+  "ref_label": "Reference values",
+  "advice_label": "Recommendation",
+  "export_btn": "📄 Export PDF report",
+  "export_filename": "lab_report.pdf",
+  "sidebar_lang": "🌐 Language",
+  "sidebar_params": "parameters supported",
+  "sidebar_how": "ℹ️ How it works",
+  "sidebar_how_text": "1. Paste your lab results\n2. Each value is extracted and compared to clinical thresholds\n3. You get an interpretation and recommendations\n\n⚠️ This tool does NOT use AI or machine learning. It uses clinical rules and thresholds.",
+  "dir": "ltr"
+}
