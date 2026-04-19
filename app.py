@@ -5,6 +5,9 @@ from datetime import datetime
 from fpdf import FPDF
 from extractor import analyze_text, PARAMETERS
 
+def clean_for_pdf(text: str) -> str:
+    return text.encode('latin-1', errors='replace').decode('latin-1').strip()
+
 # -----------------------------------------------
 # Load translations
 # -----------------------------------------------
@@ -77,7 +80,7 @@ def generate_pdf(findings: list, user_input: str, tr: dict, lang: str) -> bytes:
 
         op = f.get("operator") or ""
         val_str = f"{op}{f['value']}"
-        status_clean = f["status"].replace("✅", "").replace("⚠️", "!").replace("🔶", "~").replace("🔴", "!!").strip()
+        status_clean = clean_for_pdf(f["status"])
         ref_clean = f["reference"][:50]
 
         pdf.cell(col_w[0], 6, f["name"][:22], border=1, fill=True)
