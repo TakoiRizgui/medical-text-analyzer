@@ -27,6 +27,19 @@ def generate_pdf(findings: list, user_input: str, tr: dict, lang: str) -> bytes:
     pdf.add_page()
     pdf.set_auto_page_break(auto=True, margin=15)
 
+    if lang == "ar":
+        pdf.set_font("Helvetica", size=12)
+        pdf.cell(0, 10, "PDF export does not support Arabic characters yet.", new_x="LMARGIN", new_y="NEXT", align="C")
+        pdf.cell(0, 10, "Please use the web interface for Arabic results.", new_x="LMARGIN", new_y="NEXT", align="C")
+        pdf.ln(5)
+        pdf.set_font("Helvetica", "I", 9)
+        pdf.cell(0, 8, "Clinical Lab Results Interpreter - educational use only.", new_x="LMARGIN", new_y="NEXT", align="C")
+        return bytes(pdf.output())
+
+    pdf = FPDF()
+    pdf.add_page()
+    pdf.set_auto_page_break(auto=True, margin=15)
+
     pdf.set_font("Helvetica", "B", 16)
     pdf.set_fill_color(240, 248, 255)
     pdf.cell(0, 12, "Clinical Lab Results Report", new_x="LMARGIN", new_y="NEXT", align="C", fill=True)
@@ -123,7 +136,8 @@ tr = load_translations(lang)
 # RTL for Arabic
 if lang == "ar":
     st.markdown("""<style>
-        .stApp, .stTextArea textarea, p, label { direction: rtl; text-align: right; }
+        .stMarkdown p, .stMarkdown li, .stMarkdown h1, .stMarkdown h2, .stMarkdown h3,
+        label[data-testid], .stTextArea label { direction: rtl; text-align: right; }
     </style>""", unsafe_allow_html=True)
 
 # Sidebar content

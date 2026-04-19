@@ -263,7 +263,10 @@ def extract_value(text: str, aliases: list) -> tuple:
     """
     Returns (value, operator) where operator is None, '<', or '>'
     Handles: 'ferritin 50', 'ferritin < 10', 'glucose 1.05 g/L', 'glucose 7.2 mmol/L'
+    Also handles comma decimals: 'glucose 1,05 g/L' -> 'glucose 1.05 g/L'
     """
+    # Normalize comma decimals: 1,05 -> 1.05 (but not 1,000 style thousands)
+    text = re.sub(r'(\d),(\d)', r'\1.\2', text)
     text_lower = " " + text.lower() + " "
     unit_pattern = r"(?:ng/ml|g/dl|mg/dl|mmol/l|g/l|umol/l|%|miu/l|u/l|mg/l|meq/l|x10|/ul)?"
     for alias in aliases:
