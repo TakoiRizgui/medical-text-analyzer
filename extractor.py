@@ -235,26 +235,57 @@ PARAMETERS = [
 ]
 
 
+# Unit conversion table: alias -> factor to multiply to get base unit
+UNIT_CONVERSIONS = {
+    "glucose":    {"g/l": 100, "mmol/l": 18.0, "mg/dl": 1},
+    "glycémie":   {"g/l": 100, "mmol/l": 18.0, "mg/dl": 1},
+    "glycemie":   {"g/l": 100, "mmol/l": 18.0, "mg/dl": 1},
+    "cholesterol": {"g/l": 100, "mmol/l": 38.67, "mg/dl": 1},
+    "cholestérol": {"g/l": 100, "mmol/l": 38.67, "mg/dl": 1},
+    "triglycerides": {"g/l": 100, "mmol/l": 88.57, "mg/dl": 1},
+    "triglycérides": {"g/l": 100, "mmol/l": 88.57, "mg/dl": 1},
+    "creatinine":  {"umol/l": 0.0113, "mg/dl": 1},
+    "créatinine":  {"umol/l": 0.0113, "mg/dl": 1},
+    "urea":        {"mmol/l": 2.8, "mg/dl": 1},
+    "urée":        {"mmol/l": 2.8, "mg/dl": 1},
+}
+
+def convert_value(value: float, unit_found: str, alias: str) -> float:
+    """Convert value to base unit (mg/dL) if needed."""
+    if not unit_found:
+        return value
+    unit_lower = unit_found.lower().replace(" ", "")
+    conversions = UNIT_CONVERSIONS.get(alias.strip(), {})
+    factor = conversions.get(unit_lower, 1)
+    return round(value * factor, 2)
+
 def extract_value(text: str, aliases: list) -> tuple:
     """
     Returns (value, operator) where operator is None, '<', or '>'
-    Handles: 'ferritin 50', 'ferritin < 10', 'ferritin > 200', 'ferritin: 8.5'
+    Handles: 'ferritin 50', 'ferritin < 10', 'glucose 1.05 g/L', 'glucose 7.2 mmol/L'
     """
     text_lower = " " + text.lower() + " "
+    unit_pattern = r"(?:ng/ml|g/dl|mg/dl|mmol/l|g/l|umol/l|%|miu/l|u/l|mg/l|meq/l|x10|/ul)?"
     for alias in aliases:
         alias = alias.strip()
         patterns = [
-            (rf"(?<!\w){re.escape(alias)}[\s:=\-]*(<\s*)([0-9]+\.?[0-9]*)", "<"),
-            (rf"(?<!\w){re.escape(alias)}[\s:=\-]*(>\s*)([0-9]+\.?[0-9]*)", ">"),
-            (rf"(?<!\w){re.escape(alias)}[\s:=\-]*([0-9]+\.?[0-9]*)", None),
-            (rf"([0-9]+\.?[0-9]*)[\s]*(?:ng/ml|g/dl|mg/dl|mmol/l|%|miu/l|u/l|mg/l|meq/l)?[\s]*{re.escape(alias)}(?!\w)", None),
+            (rf"(?<!\w){re.escape(alias)}[\s:=\-]*(<\s*)([0-9]+\.?[0-9]*)\s*{unit_pattern}", "<"),
+            (rf"(?<!\w){re.escape(alias)}[\s:=\-]*(>\s*)([0-9]+\.?[0-9]*)\s*{unit_pattern}", ">"),
+            (rf"(?<!\w){re.escape(alias)}[\s:=\-]*([0-9]+\.?[0-9]*)\s*({unit_pattern})", None),
+            (rf"([0-9]+\.?[0-9]*)\s*({unit_pattern})\s*{re.escape(alias)}(?!\w)", None),
         ]
         for pattern, op in patterns:
             match = re.search(pattern, text_lower)
             if match:
                 try:
-                    val = float(match.group(2) if op else match.group(1))
-                    return val, op
+                    if op:
+                        val = float(match.group(2))
+                        return val, op
+                    else:
+                        val = float(match.group(1))
+                        unit_found = match.group(2) if len(match.groups()) > 1 else ""
+                        val = convert_value(val, unit_found, alias)
+                        return val, None
                 except (ValueError, IndexError):
                     continue
     return None, None

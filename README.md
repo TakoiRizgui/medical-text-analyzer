@@ -11,12 +11,26 @@ A multilingual tool that extracts and interprets clinical lab values from free t
 ## Demo
 
 ```
-Ferritin 8 ng/mL, Hemoglobin 10.2 g/dL, Glucose 140 mg/dL, CRP 45 mg/L
-→ ⚠️ Out-of-range values detected
-→ Ferritin: Very low — severe iron deficiency
-→ Hemoglobin: Low — moderate anemia
-→ Glucose: Diabetic range
-→ CRP: Significantly elevated — active infection
+Input:  Ferritin 8 ng/mL, Hemoglobin 9.8 g/dL, Glucose 140 mg/dL, CRP 45 mg/L
+
+Output:
+⚠️ Out-of-range values detected
+
+⚠️ Ferritin — 8.0 ng/mL
+   Very low — severe iron deficiency
+   💡 Consider iron supplementation. Check transferrin saturation and CBC.
+
+⚠️ Hemoglobin — 9.8 g/dL
+   Low — moderate anemia
+   💡 Check ferritin, B12, folate to identify cause.
+
+⚠️ Glucose (fasting) — 140.0 mg/dL
+   Diabetic range — high fasting glucose
+   💡 Confirm with HbA1c. Verify fasting duration (min 8h).
+
+⚠️ CRP (Inflammation) — 45.0 mg/L
+   Significantly elevated — active infection or autoimmune flare
+   💡 Identify source of inflammation. Complete with CBC, ESR.
 ```
 
 ---
@@ -49,7 +63,7 @@ Ferritin 8 ng/mL, Hemoglobin 10.2 g/dL, Glucose 140 mg/dL, CRP 45 mg/L
 | Ferritin | ng/mL | 12–200 (women), 30–300 (men) |
 | Hemoglobin | g/dL | 12–15.5 (women), 13.5–17.5 (men) |
 | Glucose (fasting) | mg/dL | 70–99 |
-| HbA1c | % | < 5.7% |
+| HbA1c | % | < 5.7 |
 | CRP | mg/L | < 10 |
 | TSH | mIU/L | 0.4–4.0 |
 | Creatinine | mg/dL | 0.59–1.35 |
@@ -70,7 +84,8 @@ Ferritin 8 ng/mL, Hemoglobin 10.2 g/dL, Glucose 140 mg/dL, CRP 45 mg/L
 - ✅ Supports `<` and `>` operators (e.g. `CRP < 5 mg/L`)
 - ✅ 3 languages: English, French, Arabic (with RTL support)
 - ✅ PDF report export
-- ✅ Unit tested (19 tests)
+- ✅ Unit tested — 19 tests passing
+- ✅ CI/CD via GitHub Actions
 
 ---
 
@@ -88,6 +103,10 @@ clinical-lab-interpreter/
 │   ├── en.json
 │   ├── fr.json
 │   └── ar.json
+│
+├── .github/
+│   └── workflows/
+│       └── tests.yml       # CI: runs tests on every push
 │
 └── README.md
 ```
@@ -115,10 +134,10 @@ python test_extractor.py
 
 ## Roadmap
 
-- [ ] Add 20+ more parameters (Calcium, Magnesium, ALT, AST, PSA...)
-- [ ] Support unit conversion (mmol/L ↔ mg/dL for glucose)
-- [ ] Add parameter relationships (e.g. low ferritin + low hemoglobin = iron deficiency anemia confirmed)
-- [ ] PWA / offline mode
+- [ ] Unit conversion (mmol/L ↔ mg/dL for glucose, g/L ↔ mg/dL)
+- [ ] Add 15+ more parameters (Calcium, ALT, AST, PSA, Vitamin B12...)
+- [ ] Parameter relationships (low ferritin + low Hb = iron deficiency anemia confirmed)
+- [ ] Unicode PDF for Arabic language support
 
 ---
 
