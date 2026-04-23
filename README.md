@@ -1,10 +1,19 @@
 # 🩺 Clinical Lab Results Interpreter
 
-[![Live Demo](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://medical-text-analyzer-sbkv62hqz7fumsqqg2htpv.streamlit.app/)
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://lab-interpreter.vercel.app)
+[![API](https://img.shields.io/badge/API-HuggingFace-yellow)](https://takoirizgui-lab-interpreter-api.hf.space/docs)
+[![Tests](https://github.com/TakoiRizgui/medical-text-analyzer/actions/workflows/tests.yml/badge.svg)](https://github.com/TakoiRizgui/medical-text-analyzer/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-A multilingual tool that extracts and interprets clinical lab values from free text, compares them to medical reference thresholds, and generates a downloadable PDF report.
+A multilingual AI-powered tool that extracts and interprets clinical lab values from free text, compares them to medical reference thresholds, and generates a downloadable PDF report.
 
 > ⚠️ Educational purposes only — not intended for clinical use.
+
+---
+
+## 🌐 Live Demo
+
+👉 **[lab-interpreter.vercel.app](https://lab-interpreter.vercel.app)**
 
 ---
 
@@ -35,16 +44,28 @@ Output:
 
 ---
 
+## Architecture
+
+```
+Frontend (Vercel)                    Backend (Hugging Face Spaces)
+─────────────────                    ──────────────────────────────
+HTML / CSS / JS          ←──────────►  FastAPI + Python
+lab-interpreter.vercel.app            takoirizgui-lab-interpreter-api.hf.space
+                                       ├── /analyze  (extraction + AI)
+                                       ├── /chat     (medical chatbot)
+                                       └── /pdf      (PDF report)
+```
+
+---
+
 ## How it works
 
 1. Paste a text containing lab results (e.g. `Ferritin 8 ng/mL, CRP 45 mg/L`)
 2. Each value is extracted using pattern matching (supports `=`, `<`, `>` operators)
 3. The value is compared to clinical reference thresholds
-4. An interpretation and recommendation are displayed per parameter
-5. A PDF report can be downloaded
-
-> ⚠️ This tool does **not** use AI or machine learning.
-> It uses clinical rules and thresholds — making it transparent, auditable, and reliable.
+4. Claude AI generates a natural language interpretation
+5. A chatbot answers follow-up questions about your results
+6. A PDF report can be downloaded
 
 ---
 
@@ -56,48 +77,58 @@ Output:
 
 ---
 
-## Supported parameters (15)
+## Supported parameters (40)
 
-| Parameter | Unit | Normal range |
-|---|---|---|
-| Ferritin | ng/mL | 12–200 (women), 30–300 (men) |
-| Hemoglobin | g/dL | 12–15.5 (women), 13.5–17.5 (men) |
-| Glucose (fasting) | mg/dL | 70–99 |
-| HbA1c | % | < 5.7 |
-| CRP | mg/L | < 10 |
-| TSH | mIU/L | 0.4–4.0 |
-| Creatinine | mg/dL | 0.59–1.35 |
-| Triglycerides | mg/dL | < 150 |
-| Cholesterol (total) | mg/dL | < 200 |
-| Platelets | ×10³/µL | 150–400 |
-| Vitamin D | ng/mL | 30–100 |
-| INR | — | 0.8–1.2 |
-| Urea | mg/dL | 7–20 |
-| Sodium | mEq/L | 136–145 |
-| Potassium | mEq/L | 3.5–5.0 |
+| Category | Parameters |
+|---|---|
+| Blood count | Hemoglobin, Ferritin, Platelets |
+| Glycemia | Glucose, HbA1c |
+| Lipids | Cholesterol, Triglycerides |
+| Kidney | Creatinine, Urea |
+| Liver | AST, ALT, GGT, Bilirubin (total + direct) |
+| Pancreas | Lipase, Amylase |
+| Thyroid | TSH |
+| Cardiac | Troponin, CPK, LDH, D-Dimer |
+| Inflammation | CRP, ESR |
+| Electrolytes | Sodium, Potassium, Magnesium, Phosphorus |
+| Vitamins | Vitamin D |
+| Coagulation | INR |
+| Hormones | FSH, LH, Prolactin, Testosterone, Progesterone, Estradiol |
+| Serology | ASLO, Rheumatoid Factor, Wright, Widal, HBs Antigen, Anti-HBs |
 
 ---
 
 ## Features
 
-- ✅ 15 clinical parameters with thresholds and recommendations
+- ✅ 40 clinical parameters with thresholds and recommendations
+- ✅ AI interpretation powered by Claude (Anthropic)
+- ✅ Medical chatbot — ask questions about your results
 - ✅ Supports `<` and `>` operators (e.g. `CRP < 5 mg/L`)
+- ✅ Unit conversion (g/L, mmol/L, µmol/L → mg/dL)
+- ✅ Comma decimal support (`1,05 g/L` → `105 mg/dL`)
 - ✅ 3 languages: English, French, Arabic (with RTL support)
-- ✅ PDF report export
+- ✅ PDF report export with AI interpretation
 - ✅ Unit tested — 19 tests passing
 - ✅ CI/CD via GitHub Actions
+- ✅ Deployed: Frontend (Vercel) + Backend (Hugging Face Spaces)
 
 ---
 
 ## Project structure
 
 ```
-clinical-lab-interpreter/
+medical-text-analyzer/
 │
-├── app.py                  # Streamlit interface
-├── extractor.py            # Core: value extraction + interpretation
-├── test_extractor.py       # 19 unit tests
-├── requirements.txt
+├── backend/                      # FastAPI backend
+│   ├── main.py                   # API routes + Claude integration
+│   ├── extractor.py              # Core: value extraction + interpretation
+│   ├── requirements.txt
+│   └── Dockerfile                # For Hugging Face Spaces
+│
+├── frontend/
+│   └── index.html                # Web interface
+│
+├── test_extractor.py             # 19 unit tests
 │
 ├── locales/
 │   ├── en.json
@@ -106,20 +137,29 @@ clinical-lab-interpreter/
 │
 ├── .github/
 │   └── workflows/
-│       └── tests.yml       # CI: runs tests on every push
+│       └── tests.yml             # CI/CD
 │
 └── README.md
 ```
 
 ---
 
-## Getting started
+## Getting started (local)
 
 ```bash
 git clone https://github.com/TakoiRizgui/medical-text-analyzer.git
 cd medical-text-analyzer
+
+# Backend
+cd backend
 pip install -r requirements.txt
-streamlit run app.py
+export ANTHROPIC_API_KEY=sk-ant-xxxxx
+uvicorn main:app --reload --port 8000
+
+# Frontend (new terminal)
+cd ..
+python -m http.server 3000 --directory frontend
+# Open http://localhost:3000
 ```
 
 ---
@@ -132,18 +172,33 @@ python test_extractor.py
 
 ---
 
+## API Documentation
+
+👉 **[takoirizgui-lab-interpreter-api.hf.space/docs](https://takoirizgui-lab-interpreter-api.hf.space/docs)**
+
+| Endpoint | Method | Description |
+|---|---|---|
+| `/health` | GET | API status |
+| `/parameters` | GET | List all 40 parameters |
+| `/analyze` | POST | Extract + AI interpret |
+| `/chat` | POST | Medical chatbot |
+| `/pdf` | POST | Generate PDF report |
+
+---
+
 ## Roadmap
 
-- [ ] Unit conversion (mmol/L ↔ mg/dL for glucose, g/L ↔ mg/dL)
-- [ ] Add 15+ more parameters (Calcium, ALT, AST, PSA, Vitamin B12...)
-- [ ] Parameter relationships (low ferritin + low Hb = iron deficiency anemia confirmed)
-- [ ] Unicode PDF for Arabic language support
+- [ ] PDF upload with OCR (Tesseract)
+- [ ] Patient profile (age, sex, context-aware interpretation)
+- [ ] Temporal analysis — track results over time
+- [ ] Explainable AI — "why I say this"
+- [ ] Add 20+ more parameters
 
 ---
 
 ## Technologies
 
-Python · Streamlit · fpdf2
+Python · FastAPI · Anthropic Claude · Streamlit · fpdf2 · Vercel · Hugging Face Spaces
 
 ---
 
